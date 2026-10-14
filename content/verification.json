@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "errors": [],
+  "pages": {
+    "home": {
+      "sections": 9,
+      "blocks": 19,
+      "textCharacters": 2393,
+      "textSha256": "df399fa3ab6c5f8d2b06b5c376dab62ee049b0ddb1aa3f2eade9930636872956",
+      "sourceSha256": "8a93df415832e884aaa9f9b95674cbad8c862cc722675e229a83f6edec223b48",
+      "archiveChecked": true
+    },
+    "treatments": {
+      "sections": 10,
+      "blocks": 16,
+      "textCharacters": 4765,
+      "textSha256": "686a89876277206729a48b825ffdd3725ed4b06a9e3018f7b0a3c4b0ffdbe5fd",
+      "sourceSha256": "ec0f97b92dd08be829efc8a97cbd2929e4f226fe208d096bd120e54a96d2bac3",
+      "archiveChecked": true
+    },
+    "about": {
+      "sections": 4,
+      "blocks": 5,
+      "textCharacters": 3500,
+      "textSha256": "bc3480ab8f8f71ce0f733bbea74056559dde215252e1cab8ff2cd42468cd8ccd",
+      "sourceSha256": "b9d70fa3f6388e87e61536daeb32e0bc9b14c1d6107272a1bedc4b5bcc8f1826",
+      "archiveChecked": true
+    },
+    "testimonials": {
+      "sections": 4,
+      "blocks": 8,
+      "textCharacters": 1548,
+      "textSha256": "78eb1071ad5c90aa62ef6c55dbd995a0fbbbdf40b6fe44e056ca51edc8123385",
+      "sourceSha256": "1c9d7cb4e1cdea0d44d5ddb8b0f63ac625543eee3d6c6f7cae2bce4959599e80",
+      "archiveChecked": true
+    },
+    "partners": {
+      "sections": 8,
+      "blocks": 9,
+      "textCharacters": 95,
+      "textSha256": "9ec5642d1366b2b877e075f17c22af631088e8251286355cb69e30d7c05f2e8f",
+      "sourceSha256": "f703fb3282169868033fe42261eb2026e0c4ebf8f1930b48d0feb0488b990b28",
+      "archiveChecked": true
+    },
+    "contact": {
+      "sections": 10,
+      "blocks": 12,
+      "textCharacters": 530,
+      "textSha256": "e38355d61181d9fd539cabef0bf758332c4879500ef063d6a4bcfd636e827528",
+      "sourceSha256": "d9668e840352706837a4d06eafb099922a661145f07f3229744ca0e05df2252e",
+      "archiveChecked": true
+    }
+  },
+  "assetsVerified": 14
+}

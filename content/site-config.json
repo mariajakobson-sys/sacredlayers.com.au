@@ -1,0 +1,7 @@
+{
+  "omittedBlocks": ["home-6-1", "home-7-1", "contact-3-1", "contact-2-2"],
+  "removeFooterContact": true,
+  "hideContactHeroPhoto": true,
+  "bookingUrl": "https://www.phorest.com/salon/revivalhealthlabs/book/service-selection?showSpecialOffers=false",
+  "reason": "User requested removal of the Begin Your Journey section, enquiry form and footer Contact links; form-only instructions are also excluded. The Contact decorative photo is replaced with abstract green artwork, the map stays, and Book Session links to Revival Health Labs."
+}

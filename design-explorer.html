@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#8e9b86">
+    <title>Sacred Layers — Website preview</title>
+    <link rel="stylesheet" href="explorer.css">
+  </head>
+  <body>
+    <div class="explorer">
+      <header class="explorer-toolbar">
+        <a class="brand-name" href="/" target="_blank" rel="noopener">Sacred Layers</a>
+        <div class="view-controls">
+          <div class="page-control">
+            <label for="page-select">Page</label>
+            <select id="page-select">
+              <option value="home">Home</option>
+              <option value="treatments">Treatments</option>
+              <option value="about">About</option>
+              <option value="testimonials">Testimonials</option>
+              <option value="partners">Partners</option>
+              <option value="contact">Contact</option>
+            </select>
+          </div>
+          <div class="devices" role="group" aria-label="Preview size">
+            <button class="device selected" type="button" data-device="desktop" aria-pressed="true">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="1.5"></rect><path d="M7 17h6M10 14v3"></path></svg>
+              <span>Desktop</span>
+            </button>
+            <button class="device" type="button" data-device="mobile" aria-pressed="false">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"></rect><path d="M9 15.5h2"></path></svg>
+              <span>Mobile</span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section class="preview-stage" aria-label="Website preview">
+          <div class="preview-frame" id="preview-frame">
+            <div class="preview-viewport" id="preview-viewport">
+              <iframe id="site-preview" src="/" title="Sacred Layers — Home preview"></iframe>
+            </div>
+          </div>
+        </section>
+        <p id="preview-announcement" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+      </main>
+    </div>
+    <script>
+      (() => {
+        const pages = { home: 'Home', treatments: 'Treatments', about: 'About', testimonials: 'Testimonials', partners: 'Partners', contact: 'Contact' };
+        const query = new URLSearchParams(window.location.search);
+        let page = Object.hasOwn(pages, query.get('page')) ? query.get('page') : 'home';
+        let device = query.get('view') === 'mobile' ? 'mobile' : 'desktop';
+        const iframe = document.querySelector('#site-preview');
+        const frame = document.querySelector('#preview-frame');
+        const viewport = document.querySelector('#preview-viewport');
+        const pageSelect = document.querySelector('#page-select');
+        const announcement = document.querySelector('#preview-announcement');
+
+        function fitPreview() {
+          const availableWidth = viewport.clientWidth;
+          if (!availableWidth) return;
+          const virtualWidth = device === 'desktop' ? 1280 : 390;
+          const scale = Math.min(1, availableWidth / virtualWidth);
+          iframe.style.width = `${virtualWidth}px`;
+          iframe.style.height = `${viewport.clientHeight / scale}px`;
+          iframe.style.transform = `scale(${scale})`;
+        }
+
+        function updateControls(announce = false) {
+          document.querySelectorAll('[data-device]').forEach(button => {
+            const selected = button.dataset.device === device;
+            button.classList.toggle('selected', selected);
+            button.setAttribute('aria-pressed', String(selected));
+          });
+          pageSelect.value = page;
+          frame.classList.toggle('mobile', device === 'mobile');
+          iframe.title = `Sacred Layers — ${pages[page]} ${device} preview`;
+          if (announce) announcement.textContent = `${pages[page]} · ${device === 'mobile' ? 'Mobile' : 'Desktop'} preview.`;
+          const url = new URL(window.location.href);
+          url.searchParams.delete('design');
+          url.searchParams.set('page', page);
+          url.searchParams.set('view', device);
+          window.history.replaceState(null, '', url);
+          fitPreview();
+        }
+
+        function loadPage(announce = true) {
+          iframe.src = page === 'home' ? '/' : `/${page}`;
+          updateControls(announce);
+        }
+
+        document.querySelectorAll('[data-device]').forEach(button => {
+          button.addEventListener('click', () => {
+            device = button.dataset.device;
+            updateControls(true);
+          });
+        });
+
+        pageSelect.addEventListener('change', () => {
+          page = pageSelect.value;
+          loadPage();
+        });
+
+        iframe.addEventListener('load', () => {
+          try {
+            const previewUrl = new URL(iframe.contentWindow.location.href);
+            if (previewUrl.origin !== window.location.origin) return;
+            const currentPage = previewUrl.pathname.replace(/^\/+|\/+$/g, '') || 'home';
+            if (Object.hasOwn(pages, currentPage)) page = currentPage;
+            updateControls();
+          } catch (_) {
+            // A linked external page has no effect on the local preview controls.
+          }
+        });
+
+        const previewObserver = new ResizeObserver(fitPreview);
+        previewObserver.observe(viewport);
+        loadPage(false);
+      })();
+    </script>
+  </body>
+</html>
