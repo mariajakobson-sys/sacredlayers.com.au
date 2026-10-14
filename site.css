@@ -303,6 +303,8 @@ body[data-design="spacious"].page-treatments .treatment summary::after { top: 33
 
 /* White writing and the original sage are shared by every website concept. */
 body { --paper: #8E9B86; --line: rgba(255,255,255,.3); color: #fff; }
+.skip-link { background: var(--ink); color: #fff; }
+.enquiry .action-link:hover { color: #fff; }
 body[data-design="spacious"] .hero { color: #fff; }
 .site-header a[aria-current] { border-color: #fff; }
 body[data-design="spacious"] .enquiry .action-link { color: #fff; border: 1px solid #fff; }
@@ -314,6 +316,7 @@ footer .rich-text, .rich-text, .action-link { color: inherit; }
 body[data-design="classic"] { --serif: 'Arial', 'Helvetica Neue', sans-serif; --sans: 'Arial', 'Helvetica Neue', sans-serif; font-family: var(--sans); }
 body[data-design="classic"] .site-header { display: grid; grid-template-columns: auto 1fr; align-items: center; padding: 18px max(28px,calc((100vw - 1120px)/2)); min-height: 85px; border-bottom: 1px solid var(--line); }
 .site-brand { font-family: var(--sans); font-size: 24px; line-height: 1; letter-spacing: -.065em; font-weight: 600; text-decoration: none; white-space: nowrap; }
+body[data-design="classic"] .site-header .site-brand { font-size: 24px; letter-spacing: -.05em; }
 body[data-design="classic"] .site-header nav { min-height: 0; justify-content: flex-end; gap: 27px; padding: 0; margin: 0; }
 body[data-design="classic"] .site-header nav a { font-size: 11px; letter-spacing: 0; }
 .menu-toggle { display: none; }

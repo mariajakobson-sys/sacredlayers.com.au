@@ -52,7 +52,7 @@ if (design === 'classic') {
     if (event.key === 'Escape') { setMenu(false); toggle.focus(); }
   });
   header.prepend(brand);
-  header.append(toggle);
+  header.insertBefore(toggle, document.querySelector('#navigation'));
 }
 
 function decorateLinks(container) {
