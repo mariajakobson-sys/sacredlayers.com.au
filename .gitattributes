@@ -6,3 +6,5 @@
 *.py text eol=lf
 source-snapshots/*.html -text
 assets/* -text
+content/asset-requests.json -text
+content/verification.json -text
