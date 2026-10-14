@@ -31,7 +31,7 @@
             </button>
             <button class="concept" type="button" data-design="classic" aria-pressed="false">
               <span class="concept-number" aria-hidden="true">03</span>
-              <span>Clean &amp; classic</span>
+              <span>Modern &amp; minimal</span>
             </button>
           </div>
 
@@ -82,7 +82,7 @@
 
     <script>
       (() => {
-        const designs = { spacious: 'Editorial & layered', immersive: 'Immersive', classic: 'Clean & classic' };
+        const designs = { spacious: 'Editorial & layered', immersive: 'Immersive', classic: 'Modern & minimal' };
         const pages = { home: 'Home', treatments: 'Treatments', about: 'About', testimonials: 'Testimonials', partners: 'Partners', contact: 'Contact' };
         const query = new URLSearchParams(window.location.search);
         let design = Object.hasOwn(designs, query.get('design')) ? query.get('design') : 'spacious';

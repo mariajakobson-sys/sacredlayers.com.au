@@ -30,6 +30,31 @@ for (const item of baseline.navigation) {
   document.querySelector('#navigation').append(link);
 }
 
+if (design === 'classic') {
+  const header = document.querySelector('.site-header');
+  const brand = document.createElement('a');
+  brand.className = 'site-brand';
+  brand.href = localLink('/home');
+  brand.textContent = 'Sacred Layers';
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'menu-toggle';
+  toggle.setAttribute('aria-label', 'Navigation');
+  toggle.setAttribute('aria-controls', 'navigation');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML = '<span></span><span></span>';
+  function setMenu(open) {
+    header.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  header.addEventListener('keydown', event => {
+    if (event.key === 'Escape') { setMenu(false); toggle.focus(); }
+  });
+  header.prepend(brand);
+  header.append(toggle);
+}
+
 function decorateLinks(container) {
   for (const link of container.querySelectorAll('a')) {
     const href = link.getAttribute('href');

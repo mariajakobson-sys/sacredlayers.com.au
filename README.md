@@ -1,12 +1,12 @@
 # Sacred Layers design exploration
 
-An exploration of new layouts for https://www.sacredlayers.com.au, keeping the existing written content and original images. The original sage green is **#8E9B86**.
+An exploration of new layouts for https://www.sacredlayers.com.au, keeping the existing written content and original images. The original sage green is **#8E9B86**, with white website text.
 
 ## Preview
 
 Run `npm run dev` with Node.js installed, then open http://127.0.0.1:4173/design-explorer.html.
 
-The review page lets you compare **Editorial & layered**, **Immersive**, and **Clean & classic**, switch between all six pages, and view desktop or mobile layouts. Review controls sit outside the website. The website's content is shared by all three concepts.
+The review page lets you compare **Editorial & layered**, **Immersive**, and **Modern & minimal**, switch between all six pages, and view desktop or mobile layouts. Review controls sit outside the website. The website's content is shared by all three concepts. Modern & minimal uses a wide headline, a separate image band, compact treatment cards and a collapsible mobile menu.
 
 This is a design preview. It does not deploy to, replace, or configure the existing domain.
 
